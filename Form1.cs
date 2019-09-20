@@ -16,7 +16,7 @@ namespace texteditor_v_1._1
         {
             InitializeComponent();
 
-            menuFileNew = menuFileNew_Click();
+        // menuFileNew = menuFileNew_Click();
         }
 
         private void MenuFile_Click(object sender, EventArgs e)
@@ -70,6 +70,22 @@ namespace texteditor_v_1._1
                 }
             }
             this.Text = "Файл [" + saveFileDialog1.FileName + "]";
+        }
+
+        private void menuFileFont_Click(object sender, EventArgs e)
+        {
+            if (fontDialog1.ShowDialog() == DialogResult.OK)
+            {
+                RichTextBoxStream.SelectionFont = fontDialog1.Font;
+            }
+        }
+
+        private void MenuFileColor_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                RichTextBoxStream.SelectionColor = colorDialog1.Color;
+            }
         }
     }
 }
